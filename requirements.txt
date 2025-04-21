@@ -1,0 +1,6 @@
+pytest
+playwright
+requests
+pytest-html
+pytest-xdist
+psycopg2-binary

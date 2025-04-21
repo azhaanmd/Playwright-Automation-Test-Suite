@@ -1,0 +1,35 @@
+{
+    "login": [
+      {
+        "username": "1234",
+        "password": "1234",
+        "expected": true
+      },
+      {
+        "username": "wronguser",
+        "password": "wrongpass",
+        "expected": false
+      }
+    ],
+    "signup": {
+      "new_user": {
+        "username": "newuser1234",
+        "password": "pass123"
+      },
+      "duplicate_user": {
+        "username": "1234",
+        "password": "1234"
+      }
+    },
+    "product": {
+      "name": "Samsung galaxy s6"
+    },
+    "order": {
+      "name": "QA Tester",
+      "country": "Bangladesh",
+      "city": "Dhaka",
+      "card": "1234-5678-9876",
+      "month": "04",
+      "year": "2025"
+    }
+  }
