@@ -37,23 +37,24 @@ def test_signup_new_and_duplicate(playwright:Playwright):
     page.goto("https://demoblaze.com")
     # Test new user signup
     signup.open_signup_modal()
-    signup.signup(
+    signup_message = signup.signup(
         test_data["signup"]["new_user"]["username"],
         test_data["signup"]["new_user"]["password"]
     )
-    print("done")
-    page.wait_for_timeout(3000)  # allow time for alert
+    assert "Sign up successful" in signup_message, f"Error: {signup_message}"
+
     # Test duplicate user signup
-    # signup.open_signup_modal()
-    # message = signup.signup(
-    #     test_data["signup"]["duplicate_user"]["username"],
-    #     test_data["signup"]["duplicate_user"]["password"]
-    # )
-    # page.wait_for_timeout(3000)
-    # print(message)
+    signup.open_signup_modal()
+    message = signup.signup(
+        test_data["signup"]["duplicate_user"]["username"],
+        test_data["signup"]["duplicate_user"]["password"]
+    )
+    assert "This user already exist" in message
 
 
-def test_add_and_remove_cart(browser_context):
+
+def test_add_and_remove_cart(playwright:Playwright):
+    browser_context = playwright.chromium.launch(headless=False)
     page = browser_context.new_page()
     login = LoginPage(page)
     product = ProductPage(page)
@@ -69,6 +70,7 @@ def test_add_and_remove_cart(browser_context):
     cart.add_to_cart()
     page.wait_for_timeout(2000)
     cart.go_to_cart()
+    page.wait_for_timeout(2000)
     assert len(cart.get_cart_items()) > 0
 
     cart.delete_first_item()
