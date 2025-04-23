@@ -18,10 +18,6 @@ class CartPage:
         
     def delete_first_item(self):
         rows = self.page.locator("tr.success").all()
-        for row in rows:
-            print(row.text_content())
-
-        print(self.page.locator("tr.success").nth(0).text_content())
         self.page.locator("tr.success").nth(0).locator("a", has_text="Delete").click()
 
 

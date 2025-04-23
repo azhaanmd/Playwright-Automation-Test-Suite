@@ -29,3 +29,11 @@ class LoginPage:
 
     def logout(self):
         self.logout_link.click()
+
+    
+    def is_logged_out(self):
+        try:
+            expect(self.login_link).to_have_text("Log in")
+            return True
+        except:
+            return False

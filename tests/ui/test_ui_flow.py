@@ -6,7 +6,7 @@ from pages.product_page import ProductPage
 from pages.cart_page import CartPage
 from pages.order_page import OrderPage
 from playwright.sync_api import Playwright
-
+from time import sleep
 
 
 test_data = load_test_data("test_data/ui_test_data.json")
@@ -30,7 +30,7 @@ def test_login(playwright:Playwright, case):
 
 
 def test_signup_new_and_duplicate(playwright:Playwright):
-    browser_context = playwright.chromium.launch(headless=False)
+    browser_context = playwright.chromium.launch(headless=True)
     page = browser_context.new_page()
     signup = SignupPage(page)
 
@@ -54,7 +54,7 @@ def test_signup_new_and_duplicate(playwright:Playwright):
 
 
 def test_add_and_remove_cart(playwright:Playwright):
-    browser_context = playwright.chromium.launch(headless=False)
+    browser_context = playwright.chromium.launch(headless=True)
     page = browser_context.new_page()
     login = LoginPage(page)
     product = ProductPage(page)
@@ -77,7 +77,8 @@ def test_add_and_remove_cart(playwright:Playwright):
     page.wait_for_timeout(2000)
 
 
-def test_place_order(browser_context):
+def test_place_order(playwright:Playwright):
+    browser_context = playwright.chromium.launch(headless=True)
     page = browser_context.new_page()
     login = LoginPage(page)
     cart = CartPage(page)
@@ -89,12 +90,14 @@ def test_place_order(browser_context):
 
     cart.go_to_cart()
     order.fill_order_form(test_data["order"])
-
+    
     # Simple confirmation check
     assert page.locator("h2", has_text="Thank you for your purchase!").is_visible()
 
 
-def test_logout(browser_context):
+
+def test_logout(playwright:Playwright):
+    browser_context = playwright.chromium.launch(headless=True)
     page = browser_context.new_page()
     login = LoginPage(page)
 
@@ -104,4 +107,6 @@ def test_logout(browser_context):
 
     assert login.is_logged_in()
     login.logout()
+    
+    assert login.is_logged_out()
     page.wait_for_timeout(1000)

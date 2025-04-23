@@ -13,7 +13,7 @@
     ],
     "signup": {
       "new_user": {
-        "username": "newuser123456qwert",
+        "username": "newuser123456qwerty",
         "password": "pass123"
       },
       "duplicate_user": {
