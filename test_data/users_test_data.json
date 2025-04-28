@@ -1,0 +1,14 @@
+[
+    {
+        "email": "eve.holt@reqres.in",
+        "password": "pistol",
+        "job": "Software Engineer",
+        "name": "John Doe"
+    },
+    {
+        "email": "michael.lawson@reqres.in",
+        "password": "123456",
+        "job": "QA Engineer",
+        "name": "Michael Lawson"
+    }
+]
