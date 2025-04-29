@@ -1,0 +1,9 @@
+2025-04-29 11:53:37,867 - DEBUG - Logger is working fine!
+2025-04-29 11:53:41,314 - INFO - Starting registration test
+2025-04-29 11:53:41,315 - DEBUG - Payload: {'email': 'eve.holt@reqres.in', 'password': 'pistol', 'job': 'Software Engineer', 'name': 'John Doe'}
+2025-04-29 11:53:41,876 - DEBUG - Response status: 200
+2025-04-29 11:53:41,881 - DEBUG - Response body: {'id': 4, 'token': 'QpwL5tke4Pnpja7X4'}
+2025-04-29 11:53:41,887 - INFO - Starting registration test
+2025-04-29 11:53:41,887 - DEBUG - Payload: {'email': 'michael.lawson@reqres.in', 'password': '123456', 'job': 'QA Engineer', 'name': 'Michael Lawson'}
+2025-04-29 11:53:42,339 - DEBUG - Response status: 200
+2025-04-29 11:53:42,344 - DEBUG - Response body: {'id': 7, 'token': 'QpwL5tke4Pnpja7X7'}

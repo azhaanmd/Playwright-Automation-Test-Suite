@@ -1,0 +1,16 @@
+[
+    {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "job": "Engineer",
+      "age": 30,
+      "isActive": true
+    },
+    {
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "job": "QA Tester",
+      "age": 28,
+      "isActive": false
+    }
+  ]

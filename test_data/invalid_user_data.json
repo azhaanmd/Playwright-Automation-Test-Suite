@@ -1,0 +1,6 @@
+[
+    {"name": "", "email": "eve.holt@reqres.in", "job": "Software Engineer"},  
+    {"name": "John Doe", "email": "", "job": "Software Engineer"}, 
+    {"name": "John Doe", "email": "eve.holt@reqres.in", "job": ""},  
+    {"name": "John Doe", "email": "invalid-email", "job": "Software Engineer"}  
+]
