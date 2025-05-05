@@ -1,4 +1,5 @@
 import pytest
+from utils.db_utils import get_connection
 from utils.data_loader import load_test_data
 from utils.helpers import get_users_url
 
@@ -9,6 +10,20 @@ def test_create_user(api_request_context, user_data):
     user = response.json()
     assert user["name"] == user_data["name"]
     user_data["id"] = user["id"]  # Save ID for other tests
+
+    # #Connect to DB and check if the user exists
+    # conn = get_connection()
+    # cursor = conn.cursor()
+
+    # query = "SELECT * FROM users WHERE email = %s"
+    # cursor.execute(query, (user_data["email"],))
+    # db_user = cursor.fetchone()
+
+    # conn.close()
+
+    # #Assert the user is in the DB
+    # assert db_user is not None, f"User {user_data["email"]} not found in DB"
+    # assert user_data["email"] in db_user, "Email mismatch in DB"
 
 
 def test_get_all_users(api_request_context):
@@ -34,6 +49,20 @@ def test_update_user(api_request_context):
     assert update_resp.status == 200
     assert update_resp.json()["name"] == "Updated User"
     print(update_resp.json())
+    #     # Connect to DB and check if the user was updated
+    # conn = get_connection()
+    # cursor = conn.cursor()
+
+    # query = "SELECT * FROM users WHERE id = %s"
+    # cursor.execute(query, (user_id,))
+    # db_user = cursor.fetchone()
+
+    # conn.close()
+
+    # # Assert the user was updated in DB
+    # assert db_user is not None, "User not found in DB"
+    # assert db_user[1] == updated_data["name"], "Name mismatch in DB"
+    # assert db_user[2] == updated_data["job"], "Job mismatch in DB"
 
 
 def test_delete_user(api_request_context):
