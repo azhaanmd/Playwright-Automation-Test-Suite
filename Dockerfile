@@ -50,7 +50,7 @@ RUN playwright install --with-deps
 # Installs the actual browsers (Chromium, Firefox, WebKit) and their system dependencies.
 
 # 7️⃣ Set environment variable to avoid playwright sandbox issues
-ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+#ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
 # Explanation:
 # Ensures that Playwright installs browsers in the correct path inside Docker.
