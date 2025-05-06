@@ -38,7 +38,11 @@ def test_update_user(api_request_context):
         "name": "Temp User", "email": "temp@x.com", "job": "Intern", "age": 22, "isActive": False
     }
     create_resp = api_request_context.post(get_users_url(), data=user_data)
+    print("Status:", create_resp.status)
+    print("Body:", create_resp.text())
     user_id = create_resp.json()["id"]
+    print("Status:", create_resp.status)
+    print("Body:", create_resp.text())
 
     print(create_resp.json())
 

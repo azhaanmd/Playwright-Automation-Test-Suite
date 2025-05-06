@@ -56,7 +56,7 @@ RUN playwright install --with-deps
 # Ensures that Playwright installs browsers in the correct path inside Docker.
 
 # 8️⃣ Default command to run tests
-CMD ["pytest", "-v"]
+CMD ["pytest", "-v", "-n", "auto"]
 
 # Explanation:
 # This is the default thing the container will do when it runs: run your test suite with verbose output.

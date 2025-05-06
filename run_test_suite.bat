@@ -1,4 +1,12 @@
 @echo off
 echo Running all tests with HTML and JSON report...
-pytest tests/ --html=report/report.html --self-contained-html --json-report --json-report-file=report/report.json
+call "C:\Test Automation\Playwright-Automation-Test-Suite-master\Playwright-Automation-Test-Suite\TestSuiteEnv\Scripts\activate.bat"
+echo Running all tests with HTML and JSON report...
+pytest tests\ -v -n auto --html=report\report.html --capture=tee-sys --self-contained-html --json-report --json-report-file=report\report.json
+
+echo Deactivating the virtual environment...
+deactivate
+
+echo Test run completed. Closing...
 pause
+exit

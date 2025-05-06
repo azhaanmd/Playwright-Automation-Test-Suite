@@ -16,5 +16,6 @@
   "tests/integration/test_api_db_consistency.py::test_get_all_users_api_and_db": true,
   "tests/integration/test_api_db_consistency.py::test_get_all_users_api_and_db_count": true,
   "tests/integration/test_api_db_consistency.py::test_delete_user_api_and_db_same_user": true,
-  "tests/db/test_db_users.py::test_check_user_exists": true
+  "tests/db/test_db_users.py::test_check_user_exists": true,
+  "tests/integration/test_api_db_consistency.py::test_update_user_api_and_db_same_user": true
 }
