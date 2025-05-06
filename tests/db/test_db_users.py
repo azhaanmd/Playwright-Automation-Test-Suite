@@ -1,15 +1,15 @@
-import pytest
+import pytest, uuid
 from utils.db_utils import get_connection
 
 def test_insert_user_and_fetch():
     conn = get_connection()
     cursor = conn.cursor()
-
+    email = f"test_{uuid.uuid4().hex[:6]}@example.com"
     # Insert a new user
     cursor.execute("""
         INSERT INTO users (name, email, job, age, is_active)
         VALUES (%s, %s, %s, %s, %s) RETURNING id;
-    """, ("Test User", "test2@example.com", "Tester", 26, True))
+    """, ("Test User", email, "Tester", 26, True))
     user_id = cursor.fetchone()[0]
 
     # Fetch the user
@@ -17,7 +17,7 @@ def test_insert_user_and_fetch():
     user = cursor.fetchone()
 
     assert user[1] == "Test User"  # name
-    assert user[2] == "test2@example.com"  # email
+    assert user[2] == email  # email
     assert user[3] == "Tester"  # job
 
     conn.commit()
@@ -30,15 +30,17 @@ def test_fetch_all_users():
     conn = get_connection()
     cursor = conn.cursor()
 
+    email1 = f"test_{uuid.uuid4().hex[:6]}@example.com"
+    email2 = f"test_{uuid.uuid4().hex[:6]}@example.com"
     # Insert some users
     cursor.execute("""
         INSERT INTO users (name, email, job, age, is_active)
         VALUES (%s, %s, %s, %s, %s);
-    """, ("Test User 1", "test9@example.com", "Tester", 28, True))
+    """, ("Test User 1", email1, "Tester", 28, True))
     cursor.execute("""
         INSERT INTO users (name, email, job, age, is_active)
         VALUES (%s, %s, %s, %s, %s);
-    """, ("Test User 2", "test10@example.com", "Developer", 29, True))
+    """, ("Test User 2", email2, "Developer", 29, True))
 
     # Fetch all users
     cursor.execute("SELECT * FROM users;")

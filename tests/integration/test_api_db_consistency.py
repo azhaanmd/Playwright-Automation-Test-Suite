@@ -1,6 +1,7 @@
 # tests/integration/test_api_db_consistency.py
 
 import pytest
+import uuid
 from utils.helpers import get_users_url
 from utils.db_utils import get_connection, get_user_from_db, insert_user_to_db, delete_user_from_db_by_email, fetch_all_users, update_user_in_db_by_email
 
@@ -9,7 +10,7 @@ from utils.db_utils import get_connection, get_user_from_db, insert_user_to_db, 
 def test_create_user_api_and_db_same_user(api_request_context):
     user_data = {
         "name": "Sadia QA",
-        "email": "sadia4@testmail.com",
+        "email": f"test_{uuid.uuid4().hex[:6]}@example.com",
         "job": "Tester",
         "age": 25,
         "isActive": True
