@@ -31,26 +31,28 @@ This suite supports parallel test execution, generates comprehensive HTML and JS
 ---
 
 ## 📂 Project Structure
+```text
 Playwright-Automation-Test-Suite/
-├── .github/workflows/ # GitHub Actions workflows
-│ └── ci.yml # GitHub Actions CI workflow file
-├── assets/ # Screenshots or static assets
-├── fixtures/ # Pytest fixtures
-├── logs/ # Log files from test runs
-├── pages/ # Page Object Model classes
-├── report/ # HTML & JSON test reports
-├── test_data/ # Test data in JSON
-├── tests/ # Test cases
-│ ├── api/ # API tests
-│ ├── db/ # DB tests
-│ └── ui/ # UI tests
-├── utils/ # Helper functions
+├── .github/workflows/       # GitHub Actions workflows
+│   └── ci.yml               # GitHub Actions CI workflow file
+├── assets/                  # Screenshots or static assets
+├── fixtures/                # Pytest fixtures
+├── logs/                    # Log files from test runs
+├── pages/                   # Page Object Model classes
+├── report/                  # HTML & JSON test reports
+├── test_data/               # Test data in JSON
+├── tests/                   # Test cases
+│   ├── api/                 # API tests
+│   ├── db/                  # DB tests
+│   └── ui/                  # UI tests
+├── utils/                   # Helper functions
 ├── .gitignore
 ├── Dockerfile
 ├── README.md
 ├── requirements.txt
 ├── run_test_suite.bat
-└── pytest.ini # Pytest config
+└── pytest.ini               # Pytest config
+```
 
 ## ▶️ Run Tests
 pytest tests/ -v -n auto --html=report/report.html --self-contained-html --capture=tee-sys
